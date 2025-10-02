@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom Flower Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>🌸 Petal Paradise 🌸</h1>
+        <p>Relinquish Ones Heart in Our Beautiful Blooms</p>
+    </header>
+
+    <main>
+        <div id="loading-indicator">
+            <div class="loading-spinner">🌺</div>
+            <p></p>Loading flowers...</p>
+        </div>
+
+        <section class="control-panel hidden">
+            <div class="filter-group">
+                <label for="category-filter">Category Filter</label>
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="favorite-toggle" id="favorite-toggle">
+                    <input type="checkbox" id="show-favorites">
+                    <span>⭐ Show Only Favorites</span>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort-name-btn">Sort By</label>
+                <div class="sort-controls">
+                    <button id="sort-name-btn" class="sort-btn" data-sort="name">Name</button>
+                    <button class="sort-btn" data-sort="price">Price</button>
+                    <button class="sort-btn" data-sort="rating">Rating</button>
+                    <button class="sort-btn" data-sort="stock">Stock</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="product-comparison-table" class="hidden">
+        </section>
+    </main>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <img id="modal-image" class="modal-image" src="" alt="">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 id="modal-title" class="modal-title" aria-live="polite">Flower Details</h2>
+                    <button class="close-btn" id="close-modal">&times;</button>
+                </div>
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Price:</span>
+                        <span class="detail-value product-price" id="modal-price"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Category:</span>
+                        <span class="detail-value" id="modal-category"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value rating" id="modal-rating"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <span class="detail-value" id="modal-stock"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Favorite:</span>
+                        <button class="favorite-btn" id="modal-favorite"></button>
+                    </div>
+                </div>
+                <div class="description">
+                    <h3>About This Flower</h3>
+                    <p id="modal-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p> 2025 Petal Paradise. All rights reserved.</p>    
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

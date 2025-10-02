@@ -1,0 +1,419 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 50%, #fffaf0 100%),
+                        url('images/bg2.jpg') center/cover no-repeat;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            border-bottom: 2px solid #fecfef;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #fff;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #loading-indicator {
+            text-align: center;
+            padding: 4rem;
+            font-size: 1.5rem;
+            color: #ff69b4;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            font-size: 3rem;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .control-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(255,105,180,0.2);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #d946ef;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 2px solid #fecfef;
+            font-size: 1rem;
+            cursor: pointer;
+            background: white;
+            transition: border-color 0.3s;
+        }
+
+        .filter-group select:hover {
+            border-color: #ff9a9e;
+        }
+
+        .favorite-toggle {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.75rem;
+            background: transparent;
+            border-radius: 8px;
+            border: 2px solid #fecfef;
+            transition: all 0.3s;
+        }
+
+        .favorite-toggle:hover {
+            background: #fff0f6;
+        }
+
+        .favorite-toggle.active {
+            background: #fff0f6;
+        }
+
+        .favorite-toggle input {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        .favorite-toggle span {
+            color: #d946ef;
+            font-weight: bold;
+        }
+
+        .sort-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .sort-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #fecfef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #d946ef;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .sort-btn:hover {
+            background: #fecfef;
+        }
+
+        .sort-btn.active {
+            background: #d946ef;
+            color: white;
+        }
+
+        #product-comparison-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(255,105,180,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(255,105,180,0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #ffeef8, #fff5f7);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #d946ef;
+            margin: 0;
+        }
+
+        .favorite-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            padding: 0;
+        }
+
+        .favorite-btn:hover {
+            transform: scale(1.3);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #059669;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-badge {
+            background: #fecfef;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #d946ef;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating {
+            color: #fbbf24;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stock {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .stock.low {
+            color: #dc2626;
+        }
+
+        .stock.high {
+            color: #059669;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(255,105,180,0.4);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #d946ef;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #d946ef;
+        }
+
+        .modal-details {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: #fff5f7;
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #666;
+            min-width: 100px;
+        }
+
+        .detail-value {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .description {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #ffeef8;
+            border-radius: 12px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .description h3 {
+            color: #d946ef;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .control-panel {
+                grid-template-columns: 1fr;
+            }
+
+            #product-comparison-table {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .modal-content {
+                margin: 0.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #product-comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+
+   
