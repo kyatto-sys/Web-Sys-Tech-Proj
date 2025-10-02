@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks by Kat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <h1> Tasks </h1>
+
+        <div class="task-grid">
+            <div class="task-card">
+                <h2 class="task-title">
+                    <span class="task-number">1</span>
+                    Temperature Converter
+                </h2>
+                <div class="input-group">
+                    <label for="celsius">Enter temperature in Celsius:</label>
+                    <input type="number" id="celsius" placeholder="e.g., 25" step="0.1">
+                </div>
+                <button onclick="convertTemp()">Convert to Fahrenheit</button>
+                <div class="result" id="tempResult"></div>
+            </div>
+
+            <div class="task-card">
+                <h2 class="task-title">
+                    <span class="task-number">2</span>
+                    Even or Odd Checker
+                </h2>
+                <div class="input-group">
+                    <label for="number">Enter a number:</label>
+                    <input type="number" id="number" placeholder="e.g., 42">
+                </div>
+                <button onclick="checkEvenOdd()">Check Even or Odd</button>
+                <div class="result" id="evenOddResult"></div>
+            </div>
+
+             <div class="task-card">
+                <h2 class="task-title">
+                    <span class="task-number">3</span>
+                    Shopping Cart Total
+                </h2>
+                <div class="input-group">
+                    <span>Shopping Cart Items:</span>
+                    <p style="color: #a0a0ff; font-size: 0.9rem; margin-bottom: 10px;">
+                        • Laptop: 20000<br>
+                        • Mouse: 500<br>
+                        • Keyboard: 1500
+                    </p>
+                </div>
+                <button onclick="calculateCartTotal()">Calculate Total</button>
+                <div class="result" id="cartResult"></div>
+            </div>
+
+
+            <div class="task-card">
+                <h2 class="task-title">
+                    <span class="task-number">4</span>
+                    Student Grade Lookup
+                </h2>
+                <div class="input-group">
+                    <label for="studentName">Select Student:</label>
+                    <select id="studentName">
+                        <option value="">Select a name</option>
+                        <option value="Kat">Kat</option>
+                        <option value="Jannice">Jannice</option>
+                        <option value="Rhon">Rhon</option>
+                        <option value="Shiela">Shiela</option>
+                        <option value="Carl">Carl</option>
+                        <option value="Danice">Danice</option>
+                        <option value="Zien">Zien</option>
+                    </select>
+                </div>
+                <button onclick="lookupGrade()">Get Grade</button>
+                <div class="result" id="gradeResult"></div>
+            </div>
+
+            <div class="task-card">
+                <h2 class="task-title">
+                    <span class="task-number">5</span>
+                    Greeting Functionality
+                </h2>
+                <div class="input-group">
+                    <label for="userName">Enter your name:</label>
+                    <input type="text" id="userName" placeholder="e.g., Kat">
+                </div>
+                <button onclick="showGreeting()">Greet Me!</button>
+                <div class="result" id="greeting"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
